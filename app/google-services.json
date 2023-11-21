@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "29219789739",
+    "firebase_url": "https://pawfectmatch-a211b-default-rtdb.firebaseio.com",
+    "project_id": "pawfectmatch-a211b",
+    "storage_bucket": "pawfectmatch-a211b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29219789739:android:8822dcde3475b88b4a50ee",
+        "android_client_info": {
+          "package_name": "com.example.loginfrd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgoM0Q3XfUvASD6nQ_kdGxs41TXnm0mH8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
