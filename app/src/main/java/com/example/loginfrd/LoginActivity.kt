@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.loginfrd.databinding.ActivityLoginBinding
 import com.example.loginfrd.databinding.ActivitySignupBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -15,60 +16,49 @@ import com.google.firebase.database.ValueEventListener
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+
     //connects to firebase
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        firebaseAuth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance()
-        databaseReference =  firebaseDatabase.reference.child("users")
+        databaseReference = firebaseDatabase.reference.child("users")
 
-        binding.loginButton.setOnClickListener{
-            val loginEmail = binding.loginEmail.text.toString()
-            val loginPassword = binding.loginPassword.text.toString()
+        binding.loginButton.setOnClickListener {
+            val email = binding.loginEmail.text.toString()
+            val password = binding.loginPassword.text.toString()
 
-            if(loginEmail.isNotEmpty() && loginPassword.isNotEmpty()){
-               loginUser(loginEmail, loginPassword)
-            }else{
-                Toast.makeText(this@LoginActivity, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                //for authentication
+                firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        //if user login successful go to main page
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            //email and password dont match
+                            Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            } else {
+                Toast.makeText(this, "Enter Email and Password", Toast.LENGTH_SHORT).show()
             }
+
         }
-        binding.signupRedirect.setOnClickListener{
-            startActivity(Intent(this@LoginActivity, SignupActivity::class.java))
+
+        binding.signupRedirect.setOnClickListener {
+            startActivity(Intent(this, SignupActivity::class.java))
             finish()
         }
     }
-
-    private fun loginUser(email: String, password: String){
-        //sorts data
-        databaseReference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object:
-            ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot){
-                // if the user does not already exits, create a new user id
-                if(dataSnapshot.exists()){
-                    for(userSnapshot in dataSnapshot.children){
-                        val userData = userSnapshot.getValue(UserData::class.java)
-
-                        if(userData != null && userData.password == password){
-                            Toast.makeText(this@LoginActivity, "Login Successful", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@LoginActivity, MainActivity::class.java ))
-                            finish()
-                            return
-                        }
-                    }
-                }
-                // if passwords don't match
-                Toast.makeText(this@LoginActivity, "Login failed", Toast.LENGTH_SHORT).show()
-            }
-            override fun onCancelled(databaseError: DatabaseError){
-                Toast.makeText(this@LoginActivity, "Database Error: ${databaseError.message}", Toast.LENGTH_SHORT).show()
-
-            }
-        })
-    }
-
 }

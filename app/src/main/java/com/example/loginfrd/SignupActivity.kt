@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.loginfrd.databinding.ActivitySignupBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -18,6 +19,8 @@ class SignupActivity : AppCompatActivity() {
 
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
+    private lateinit var firebaseAuth: FirebaseAuth
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,27 +28,42 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        firebaseAuth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance()
         databaseReference =  firebaseDatabase.reference.child("users")
 
         binding.signupButton.setOnClickListener{
-          val signupEmail = binding.signupEmail.text.toString()
-          val signupPassword = binding.signupPassword.text.toString()
+          val email = binding.signupEmail.text.toString()
+          val password = binding.signupPassword.text.toString()
 
-          if(signupEmail.isNotEmpty() && signupPassword.isNotEmpty()){
-              signupUser(signupEmail, signupPassword)
+          if(email.isNotEmpty() && password.isNotEmpty()){
+              //for database
+              signupUser(email, password)
+              //for authentication
+              firebaseAuth.createUserWithEmailAndPassword(email,password)
+                  .addOnCompleteListener(this) {task ->
+                      //if user created successful go to login page
+                      if(task.isSuccessful){
+                          Toast.makeText(this@SignupActivity, "Signup Successful!", Toast.LENGTH_SHORT).show()
+                          val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                          finish()
+                      }else{
+                          Toast.makeText(this@SignupActivity, "Signup Unsuccessful", Toast.LENGTH_SHORT).show()
+                      }
+                  }
           }else{
-              Toast.makeText(this@SignupActivity, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+              Toast.makeText(this@SignupActivity, "Enter Email and Password", Toast.LENGTH_SHORT).show()
           }
         }
-        binding.loginRedirect.setOnClickListener{
-            startActivity(Intent(this@SignupActivity, LoginActivity::class.java))
-            finish()
-        }
-
-
+        //if user already have account then redirects to login page
+    binding.loginRedirect.setOnClickListener{
+        startActivity(Intent(this,LoginActivity::class.java))
+        finish()
     }
+}
 
+    //updates database with new user
     private fun signupUser(email: String, password: String){
         //sorts data
         databaseReference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object:
@@ -57,9 +75,7 @@ class SignupActivity : AppCompatActivity() {
                     val userData = UserData(id, email, password)
                     //creates a unique user id
                     databaseReference.child(id!!).setValue(userData)
-                    Toast.makeText(this@SignupActivity, "Signup Successful!", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@SignupActivity, LoginActivity::class.java))
-                    finish()
+                   //toast.makeText(this@SignupActivity, "Signup Successful!", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this@SignupActivity, "User Already Exists", Toast.LENGTH_SHORT).show()
                 }
