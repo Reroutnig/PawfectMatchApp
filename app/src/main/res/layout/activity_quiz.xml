@@ -22,6 +22,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="350dp"
             android:layout_height="650dp"
+            app:cardBackgroundColor="#6750A3"
             app:cardCornerRadius="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -29,29 +30,32 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="325dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"
-                android:text="QUESTIONS"
+                android:layout_marginTop="50dp"
+                android:text="Let's Find Your Pawfect Match!"
                 android:textColor="@color/black"
                 android:textSize="45sp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:gravity="center">
 
             </TextView>
 
 
             <TextView
                 android:id="@+id/questions"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="200dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="220dp"
+                android:background="#FFFFFF"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="QUESTION"
+                android:textColor="@color/black"
                 android:textSize="20dp"
-                android:textStyle="bold"
-                android:textColor="@color/black">
+                android:textStyle="bold">
 
             </TextView>
 
@@ -61,9 +65,10 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="300dp"
+                android:layout_marginTop="320dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="40dp"
+                android:background="#A67FED"
                 android:enabled="true"
                 android:onClick="option1Clicked"
                 android:text="option1"
@@ -79,9 +84,11 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="375dp"
+                android:layout_marginTop="390dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="40dp"
+
+                android:background="#A67FED"
                 android:enabled="true"
                 android:onClick="option2Clicked"
                 android:text="option2"
@@ -96,9 +103,10 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="450dp"
+                android:layout_marginTop="460dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="40dp"
+                android:background="#A67FED"
                 android:enabled="true"
                 android:onClick="option3Clicked"
                 android:text="option3"
@@ -114,9 +122,10 @@
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="40dp"
-                android:layout_marginTop="525dp"
+                android:layout_marginTop="530dp"
                 android:layout_marginEnd="40dp"
                 android:layout_marginBottom="40dp"
+                android:background="#A67FED"
                 android:enabled="true"
                 android:onClick="option4Clicked"
                 android:text="option4"
