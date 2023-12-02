@@ -3,6 +3,7 @@ package com.example.loginfrd
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import com.example.loginfrd.databinding.ActivityLoginBinding
 import com.example.loginfrd.databinding.ActivityMainBinding
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
             finish()
 
         }
-    }
 
+        binding.startQuiz.setOnClickListener{
+            setContentView(R.layout.quiz_start)
+            finish()
+        }
+    }
 }

@@ -35,17 +35,17 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.350"
-                app:srcCompat="@drawable/quiz_labrador">
+                app:srcCompat="@drawable/quiz_beagle">
 
             </ImageView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="50dp"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
-                android:text="Labrador"
+                android:text="Beagle"
                 android:textColor="@color/black"
                 android:textSize="50sp"
                 android:textStyle="bold"
@@ -71,12 +71,12 @@
                 android:background="@android:color/white"
                 android:enabled="true"
                 android:gravity="center"
-                android:paddingLeft="15dp"
                 android:paddingTop="5dp"
-                android:paddingRight="15dp"
                 android:paddingBottom="5dp"
-                android:text="Your Result"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:textColor="@color/black"
+                android:text="Your Result"
                 android:textSize="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent">

@@ -16,10 +16,10 @@ class QuizActivity : AppCompatActivity() {
     private var index:Int = 0
     lateinit var questionModel: QuizActivityViewModel
 
-    private var option1Count:Int=0
-    private var option2Count:Int=0
-    private var option3Count:Int=0
-    private var option4Count:Int=0
+    var option1Count:Int=0
+    var option2Count:Int=0
+    var option3Count:Int=0
+    var option4Count:Int=0
 
     lateinit var questions:TextView
     lateinit var option1:Button
@@ -45,6 +45,7 @@ class QuizActivity : AppCompatActivity() {
 
 
 
+
         questionsList= ArrayList()
         questionsList.add(QuizActivityViewModel("What size dog do you prefer?","Small","Medium","Large","Extra Large"))
         questionsList.add(QuizActivityViewModel("How active is your lifestyle?","Minimal", "Regular", "Active", "Very Active"))
@@ -60,15 +61,20 @@ class QuizActivity : AppCompatActivity() {
 
     }
 
-    private fun gameResult(){
-        var intent=Intent(this,QuizResults::class.java)
+    private fun quizResult(){
+        if (index >= questionsList.size) {
+            var intent = Intent(this, QuizResults::class.java)
 
-        intent.putExtra("total",questionsList.size.toString())
+            intent.putExtra("total", questionsList.size.toString())
 
-        startActivity(intent)
+            startActivity(intent)
+        }
+        else {
+            questionModel = questionsList[index]
+            setAllQuestions()
+            enableButton()
+        }
     }
-
-
 
     private fun setAllQuestions() {
         questions.text=questionModel.question
@@ -93,25 +99,31 @@ class QuizActivity : AppCompatActivity() {
     fun option1Clicked(view:View){
         disableButton()
         option1Count++
+        index++
+        quizResult()
     }
 
     fun option2Clicked(view:View){
         disableButton()
         option2Count++
+        index++
+        quizResult()
     }
     fun option3Clicked(view:View){
         option3Count++
+        index++
+        quizResult()
     }
     fun option4Clicked(view:View){
         option4Count++
+        index++
+        quizResult()
     }
+
+
 
     override fun onBackPressed() {
         backToast = Toast.makeText(baseContext, "DOUBLE PRESS TO QUIT GAME", Toast.LENGTH_SHORT)
         backToast?.show()
     }
-
-
-
-
 }
