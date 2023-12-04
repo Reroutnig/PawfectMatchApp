@@ -29,7 +29,27 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".CatalogActivity"
+            android:exported="false" />
+        <activity android:name=".AdoptionActivity"/>
+        <activity
+            android:name=".QuizStart"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".QuizResults"
+            android:exported="false">
+
+        </activity>
     </application>
 
 </manifest>

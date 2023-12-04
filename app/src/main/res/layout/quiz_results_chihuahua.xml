@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff092b0"
+    tools:context=".QuizResults">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="650dp"
+            app:cardBackgroundColor="#6750A3"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="150dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.350"
+                app:srcCompat="@drawable/quiz_chihuahua">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="Chihuahua"
+                android:textColor="@color/black"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.100">
+
+
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="420dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@android:color/white"
+                android:enabled="true"
+                android:gravity="center"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="5dp"
+                android:text="Your Result"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <android.widget.Button
+                android:id="@+id/continuebtn"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="550dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="#A67FED"
+                android:enabled="true"
+                android:text="Continue"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </android.widget.Button>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

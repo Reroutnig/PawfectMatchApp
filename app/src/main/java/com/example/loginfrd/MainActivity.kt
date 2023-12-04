@@ -14,12 +14,20 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.logOutButton.setOnClickListener{
+        binding.logOutButton.setOnClickListener {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
             Toast.makeText(this@MainActivity, "Logout Successful", Toast.LENGTH_SHORT).show()
             finish()
+        }
 
+        //Listener for catalog button
+        binding.catalogButton.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CatalogActivity::class.java))
+
+            binding.startQuiz.setOnClickListener {
+                startActivity(Intent(this@MainActivity, QuizStart::class.java))
+
+            }
         }
     }
-
 }
