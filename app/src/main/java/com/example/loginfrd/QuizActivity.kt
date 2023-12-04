@@ -99,7 +99,6 @@ class QuizActivity : AppCompatActivity() {
         setAllQuestions()
 
     }
-
     private fun quizResult() {
         if (index >= questionsList.size) {
             var intent = Intent(this, QuizResults::class.java)
@@ -114,63 +113,51 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    private fun enableButton() {
-        option1.isEnabled = true
-        option2.isEnabled = true
-        option3.isEnabled = true
-        option4.isEnabled = true
-    }
-
     private fun setAllQuestions() {
         if (index < questionsList.size) {
             val currentQuestion = questionsList[index]
             questions.text = currentQuestion.question
 
         }
-        fun enableButton() {
-            option1.isClickable = true
-            option2.isClickable = true
-            option3.isClickable = true
-            option4.isClickable = true
-        }
-
-        fun disableButton() {
-            option1.isClickable = false
-            option2.isClickable = false
-            option3.isClickable = false
-            option4.isClickable = false
-        }
-
-        fun option1Clicked(view: View) {
-            disableButton()
-            option1Count++
-            index++
-            quizResult()
-        }
-
-        fun option2Clicked(view: View) {
-            disableButton()
-            option2Count++
-            index++
-            quizResult()
-        }
-
-        fun option3Clicked(view: View) {
-            option3Count++
-            index++
-            quizResult()
-        }
-
-        fun option4Clicked(view: View) {
-            option4Count++
-            index++
-            quizResult()
-        }
-
-
-        fun onBackPressed() {
-            backToast = Toast.makeText(baseContext, "DOUBLE PRESS TO QUIT GAME", Toast.LENGTH_SHORT)
-            backToast?.show()
-        }
     }
+    fun enableButton() {
+        option1.isClickable = true
+        option2.isClickable = true
+        option3.isClickable = true
+        option4.isClickable = true
+    }
+
+    fun disableButton() {
+        option1.isClickable = false
+        option2.isClickable = false
+        option3.isClickable = false
+        option4.isClickable = false
+    }
+
+    fun option1Clicked(view: View) {
+        disableButton()
+        option1Count++
+        index++
+        quizResult()
+    }
+
+    fun option2Clicked(view: View) {
+        disableButton()
+        option2Count++
+        index++
+        quizResult()
+    }
+
+    fun option3Clicked(view: View) {
+        option3Count++
+        index++
+        quizResult()
+    }
+
+    fun option4Clicked(view: View) {
+        option4Count++
+        index++
+        quizResult()
+    }
+
 }
