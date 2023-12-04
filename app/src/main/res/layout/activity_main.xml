@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff092b0"
     tools:context=".MainActivity">
 
     <Button
@@ -20,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="400dp"
