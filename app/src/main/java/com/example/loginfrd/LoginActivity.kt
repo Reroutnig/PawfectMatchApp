@@ -1,17 +1,13 @@
 package com.example.loginfrd
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.loginfrd.databinding.ActivityLoginBinding
-import com.example.loginfrd.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class LoginActivity : AppCompatActivity() {
 
@@ -58,6 +54,11 @@ class LoginActivity : AppCompatActivity() {
 
         binding.signupRedirect.setOnClickListener {
             startActivity(Intent(this, SignupActivity::class.java))
+            finish()
+        }
+
+        binding.forgotPasswordRedirect.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
             finish()
         }
     }
