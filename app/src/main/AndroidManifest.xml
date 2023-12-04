@@ -29,10 +29,13 @@
             android:exported="false">
 
         </activity>
+<<<<<<< HEAD
         <activity
             android:name=".CatalogActivity"
             android:exported="false" />
         <activity android:name=".AdoptionActivity"/>
+=======
+>>>>>>> 4fba96090a2f9a7ad2ce5b67fbd02ce7b2b0942e
     </application>
 
 </manifest>
