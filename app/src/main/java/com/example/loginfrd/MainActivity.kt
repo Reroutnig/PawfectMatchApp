@@ -22,9 +22,8 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        binding.startQuiz.setOnClickListener{
-            setContentView(R.layout.quiz_start)
-            finish()
+        binding.startQuiz.setOnClickListener {
+            startActivity(Intent(this@MainActivity, QuizStart::class.java))
         }
     }
 }
