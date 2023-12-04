@@ -3,7 +3,6 @@ package com.example.loginfrd
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import com.example.loginfrd.databinding.ActivityLoginBinding
 import com.example.loginfrd.databinding.ActivityMainBinding
@@ -19,11 +18,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
             Toast.makeText(this@MainActivity, "Logout Successful", Toast.LENGTH_SHORT).show()
             finish()
-
         }
+
+        //Listener for catalog button
+        binding.catalogButton.setOnClickListener {
+            startActivity(Intent(this@MainActivity, CatalogActivity::class.java))
 
         binding.startQuiz.setOnClickListener {
             startActivity(Intent(this@MainActivity, QuizStart::class.java))
+
         }
     }
+
 }
