@@ -49,5 +49,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
                     }
             }
         }
+
+        binding.returnToLogin.setOnClickListener {
+            startActivity(Intent(this,LoginActivity::class.java))
+            finish()
+        }
     }
 }
