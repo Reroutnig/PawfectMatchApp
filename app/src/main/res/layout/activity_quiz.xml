@@ -12,7 +12,6 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -44,7 +43,7 @@
 
             <TextView
                 android:id="@+id/questions"
-                android:layout_width="wrap_content"
+                android:layout_width="290dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="220dp"
@@ -53,7 +52,8 @@
                 android:padding="10dp"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                android:visibility="visible">
 
             </TextView>
 

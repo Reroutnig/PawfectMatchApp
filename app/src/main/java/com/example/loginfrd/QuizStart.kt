@@ -17,7 +17,7 @@ class QuizStart : AppCompatActivity() {
 
         start = findViewById(R.id.start)
         start.setOnClickListener {
-            setContentView(R.layout.activity_quiz)
+            startActivity(Intent(this@QuizStart, QuizActivity::class.java))
         }
     }
 

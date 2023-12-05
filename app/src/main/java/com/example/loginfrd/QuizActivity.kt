@@ -3,6 +3,7 @@ package com.example.loginfrd
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -16,10 +17,7 @@ class QuizActivity : AppCompatActivity() {
     private var index: Int = 0
     lateinit var questionModel: QuizActivityViewModel
 
-    var option1Count: Int = 0
-    var option2Count: Int = 0
-    var option3Count: Int = 0
-    var option4Count: Int = 0
+    var optionCounts = IntArray(4)
 
     lateinit var questions: TextView
     lateinit var option1: Button
@@ -95,16 +93,13 @@ class QuizActivity : AppCompatActivity() {
 
         //questionsList.shuffle()
         questionModel = questionsList[index]
-
         setAllQuestions()
 
     }
     private fun quizResult() {
         if (index >= questionsList.size) {
-            var intent = Intent(this, QuizResults::class.java)
-
-            intent.putExtra("total", questionsList.size.toString())
-
+            val intent = Intent(this@QuizActivity, QuizResults::class.java)
+            intent.putExtra("optionCounts", optionCounts)
             startActivity(intent)
         } else {
             questionModel = questionsList[index]
@@ -113,11 +108,14 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-    private fun setAllQuestions() {
+        private fun setAllQuestions() {
         if (index < questionsList.size) {
             val currentQuestion = questionsList[index]
             questions.text = currentQuestion.question
-
+            option1.text = currentQuestion.option1
+            option2.text = currentQuestion.option2
+            option3.text = currentQuestion.option3
+            option4.text = currentQuestion.option4
         }
     }
     fun enableButton() {
@@ -136,28 +134,32 @@ class QuizActivity : AppCompatActivity() {
 
     fun option1Clicked(view: View) {
         disableButton()
-        option1Count++
+        optionCounts[0]++
         index++
         quizResult()
+        setAllQuestions()
     }
 
     fun option2Clicked(view: View) {
         disableButton()
-        option2Count++
+        optionCounts[1]++
         index++
         quizResult()
+        setAllQuestions()
     }
 
     fun option3Clicked(view: View) {
-        option3Count++
+        optionCounts[2]++
         index++
         quizResult()
+        setAllQuestions()
     }
 
     fun option4Clicked(view: View) {
-        option4Count++
+        optionCounts[3]++
         index++
         quizResult()
+        setAllQuestions()
     }
 
 }

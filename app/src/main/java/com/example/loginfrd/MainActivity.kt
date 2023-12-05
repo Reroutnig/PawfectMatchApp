@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, CatalogActivity::class.java))
         }
 
-            binding.startQuiz.setOnClickListener {
-                startActivity(Intent(this@MainActivity, QuizStart::class.java))
+        binding.startQuiz.setOnClickListener {
+            startActivity(Intent(this@MainActivity, QuizStart::class.java))
 
         }
     }
