@@ -39,9 +39,12 @@ class QuizActivity : AppCompatActivity() {
         option3 = findViewById(R.id.option3)
         option4 = findViewById(R.id.option4)
 
-
-
-
+        //Listener for home button
+        val homeButton = findViewById<Button>(R.id.homeButton)
+        homeButton.setOnClickListener {
+            startActivity(Intent(this@QuizActivity, MainActivity::class.java))
+            finish()
+        }
 
         questionsList = ArrayList()
         questionsList.add(
