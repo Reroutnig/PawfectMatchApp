@@ -19,9 +19,17 @@ class QuizStart : AppCompatActivity() {
         start.setOnClickListener {
             startActivity(Intent(this@QuizStart, QuizActivity::class.java))
         }
+
+        //Listener for home button
+        val homeButton = findViewById<Button>(R.id.homeButton)
+        homeButton.setOnClickListener {
+            startActivity(Intent(this@QuizStart, MainActivity::class.java))
+            finish()
+        }
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
     }
+
 }

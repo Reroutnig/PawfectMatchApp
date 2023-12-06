@@ -1,109 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff092b0">
+    android:background="@drawable/catalog_bg">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="1dp"
+    <FrameLayout
+        android:layout_width="350dp"
+        android:layout_height="650dp"
+        android:layout_gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="350dp"
-            android:layout_height="650dp"
-            app:cardBackgroundColor="#6750A3"
-            app:cardCornerRadius="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/adoptionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/titanone_regular"
+            android:padding="15dp"
+            android:text="Adopt Me Today!"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="48sp" />
 
-            <TextView
-                android:id="@+id/adoptionTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="55dp"
-                android:fontFamily="sans-serif-smallcaps"
-                android:padding="15dp"
-                android:text="Adopt Me Today!"
-                android:textColor="@color/black"
-                android:textSize="35sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/catalogButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/baseline_arrow_back_24"
+            android:backgroundTint="@color/black" />
 
-            <android.widget.Button
-                android:id="@+id/catalogButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/baseline_arrow_back_24"
-                android:backgroundTint="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/imageViewInAdoption"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="150dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside" />
 
-            </android.widget.Button>
+        <TextView
+            android:id="@+id/imageDescription"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="400dp"
+            android:fontFamily="@font/neucha_regular"
+            android:gravity="center"
+            android:lineSpacingExtra="-4sp"
+            android:padding="5dp"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/imageViewInAdoption"
-                android:layout_width="250dp"
-                android:layout_height="250dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="120dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/adoptionTitle" />
+        <Button
+            android:id="@+id/adoptButton"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="575dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="40dp"
+            android:background="@color/orange"
+            android:fontFamily="@font/neucha_regular"
+            android:text="Adopt"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
 
-            <TextView
-                android:id="@+id/imageDescription"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="375dp"
-                android:background="@android:color/white"
-                android:fontFamily="serif"
-                android:gravity="center"
-                android:lineSpacingExtra="-4sp"
-                android:padding="5dp"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageViewInAdoption" />
-
-            <android.widget.Button
-                android:id="@+id/adoptButton"
-                android:layout_width="150dp"
-                android:layout_height="45dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="575dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="40dp"
-                android:background="#A67FED"
-                android:enabled="true"
-                android:text="Adopt"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </android.widget.Button>
-
-        </androidx.cardview.widget.CardView>
-
-    </RelativeLayout>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
